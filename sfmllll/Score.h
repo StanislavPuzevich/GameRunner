@@ -1,5 +1,4 @@
 #pragma once
-#include "Score.h"
 
 class Score
 {
@@ -10,8 +9,8 @@ private:
 
 public:
 
-	void loadFile();                            // загрузка текстур
-	void ScoreObjStart();                       // задает координаты элементов при первом цикле
+	void loadFile();                            // Г§Г ГЈГ°ГіГ§ГЄГ  ГІГҐГЄГ±ГІГіГ°
+	void ScoreObjStart();                       // Г§Г Г¤Г ГҐГІ ГЄГ®Г®Г°Г¤ГЁГ­Г ГІГ» ГЅГ«ГҐГ¬ГҐГ­ГІГ®Гў ГЇГ°ГЁ ГЇГҐГ°ГўГ®Г¬ Г¶ГЁГЄГ«ГҐ
 	bool ScoreObjRun(int, int&, bool& scoreX10);
-	void draw(sf::RenderWindow& window);        //выводит на экран элементы
+	void draw(sf::RenderWindow& window);        //ГўГ»ГўГ®Г¤ГЁГІ Г­Г  ГЅГЄГ°Г Г­ ГЅГ«ГҐГ¬ГҐГ­ГІГ»
 };
