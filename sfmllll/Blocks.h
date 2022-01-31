@@ -10,18 +10,18 @@ private:
 	sf::Sprite cactus[5];
 	sf::Sprite block[5];
 	sf::Sprite SnowMan[5];
-	int bx[5] = {}, by[5] = {}, bty[5] = {};      // кф для отображения блоков
+	int bx[5] = {}, by[5] = {}, bty[5] = {};      // РєС„ РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ Р±Р»РѕРєРѕРІ
 
 public:
 
-	void loadFile();                              // загрузка текстур
-	void randBlockObj();                          // задает координаты элементов при первом цикле
+	void loadFile();                              // Р·Р°РіСЂСѓР·РєР° С‚РµРєСЃС‚СѓСЂ
+	void randBlockObj();                          // Р·Р°РґР°РµС‚ РєРѕРѕСЂРґРёРЅР°С‚С‹ СЌР»РµРјРµРЅС‚РѕРІ РїСЂРё РїРµСЂРІРѕРј С†РёРєР»Рµ
 	void randCactusObj();
 	void randSnowManObj();
-	int randMoveBlockObj(sf::Sprite man);         // задает координаты объектов "блоки" в ходе игры
+	int randMoveBlockObj(sf::Sprite man);         // Р·Р°РґР°РµС‚ РєРѕРѕСЂРґРёРЅР°С‚С‹ РѕР±СЉРµРєС‚РѕРІ "Р±Р»РѕРєРё" РІ С…РѕРґРµ РёРіСЂС‹
 	int randMoveCactusObj(sf::Sprite man);
 	int randMoveSnowManObj(sf::Sprite man);
-	void draw(sf::RenderWindow& window);          // отображает на экране элементы
+	void draw(sf::RenderWindow& window);          // РѕС‚РѕР±СЂР°Р¶Р°РµС‚ РЅР° СЌРєСЂР°РЅРµ СЌР»РµРјРµРЅС‚С‹
 	void drawCactus(sf::RenderWindow& window);
 	void drawSnowMan(sf::RenderWindow& window);
 };
