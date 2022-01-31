@@ -1,8 +1,5 @@
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
-#include "Blocks.h"                          // ÊÎÌÌÅÍÒÀÐÈÈ ÈÄÅÍÒÈ×ÍÛ ÏÅÐÂÎÉ ËÎÊÀÖÈÈ
+#include "Blocks.h"                          // ÐšÐžÐœÐœÐ•ÐÐ¢ÐÐ Ð˜Ð˜ Ð˜Ð”Ð•ÐÐ¢Ð˜Ð§ÐÐ« ÐŸÐ•Ð Ð’ÐžÐ™ Ð›ÐžÐšÐÐ¦Ð˜Ð˜
 #include "Earth.h"
-#include "Score.h"
 #include "Boost.h"
 
 using namespace  sf;
@@ -13,35 +10,35 @@ void UpDownMovement(int& game, Event& event, Sound& jump, Music& pl, bool& down,
 
 void Location3(int& GameLocation, RenderWindow& window)
 {
-    Music pl;         
+    Music pl;
     pl.openFromFile("C:/Users/Lenovo/Desktop/MyPR/GameRunner/Paint/SnowMusic.wav");
-    pl.setVolume(60);
+    pl.setVolume(60.f);
     pl.setLoop(true);
 
-    SoundBuffer jm;   
+    SoundBuffer jm;
     jm.loadFromFile("C:/Users/Lenovo/Desktop/MyPR/GameRunner/Paint/Jump.wav");
     Sound jump(jm);
-    jump.setVolume(10);
+    jump.setVolume(10.f);
 
-    SoundBuffer dr;   
+    SoundBuffer dr;
     dr.loadFromFile("C:/Users/Lenovo/Desktop/MyPR/GameRunner/Paint/SoundFire.wav");
     Sound drop(dr);
-    drop.setVolume(40);
+    drop.setVolume(40.f);
 
-    SoundBuffer ht;  
+    SoundBuffer ht;
     ht.loadFromFile("C:/Users/Lenovo/Desktop/MyPR/GameRunner/Paint/Hit.wav");
     Sound hit(ht);
-    hit.setVolume(100);
+    hit.setVolume(100.f);
 
-    Texture f;      
+    Texture f;
     f.loadFromFile("C:/Users/Lenovo/Desktop/MyPR/GameRunner/Paint/fon6.png");
     Sprite fon(f);
 
-    Earth l;    
+    Earth l;
     l.loadFile();
     l.randSnowObj();
 
-    Texture m;      
+    Texture m;
     m.loadFromFile("C:/Users/Lenovo/Desktop/MyPR/GameRunner/Paint/man.png");
     Sprite man(m);
 
@@ -49,27 +46,25 @@ void Location3(int& GameLocation, RenderWindow& window)
     boost.loadFile();
     boost.randBoostFireObj();
 
-    float y = 540, frame = 0, py = 0, dy = 0, spead = 1, fx = 0; 
+    float y = 540, frame = 0, py = 0, dy = 0, spead = 1, fx = 0;
     bool up = false, down = false, anim = true, scoreX10 = false;
     int game = 0;
 
-    Texture t;       
+    Texture t;
     t.loadFromFile("C:/Users/Lenovo/Desktop/MyPR/GameRunner/Paint/textLev3.png");
     Sprite text(t);
-    text.setScale(1, 1);
-    text.setPosition(370, 400);
+    text.setPosition(370.f, 400.f);
 
-    Blocks bk;      
+    Blocks bk;
     bk.loadFile();
     bk.randSnowManObj();
 
-    Texture go;     
+    Texture go;
     go.loadFromFile("C:/Users/Lenovo/Desktop/MyPR/GameRunner/Paint/GO.png");
     Sprite gameover(go);
-    gameover.setScale(1, 1);
-    gameover.setPosition(290, 450);
+    gameover.setPosition(290.f, 450.f);
 
-    Score sc;      
+    Score sc;
     sc.loadFile();
     sc.ScoreObjStart();
 
@@ -90,11 +85,11 @@ void Location3(int& GameLocation, RenderWindow& window)
 
         l.drawSnow(window);
 
-        man.setPosition(200, y);
+        man.setPosition(200.f, y);
         window.draw(man);
         if (game == 0)
         {
-            fx += 0.005;
+            fx += 0.005f;
             if (fx > 5)
                 fx -= 5;
             if (fx < 3) window.draw(text);
