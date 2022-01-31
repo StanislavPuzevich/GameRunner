@@ -1,7 +1,6 @@
 #include "Blocks.h"
 #include "Earth.h"
 #include "Boost.h"
-#include "Score.h"
 
 using namespace  sf;
 
