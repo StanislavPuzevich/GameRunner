@@ -1,22 +1,21 @@
-#include <SFML/Graphics.hpp>
 #include "Score.h"
 
 using namespace sf;
 
-void Score::loadFile()                                       // подключение изображений   
+void Score::loadFile()                                       // РїРѕРґРєР»СЋС‡РµРЅРёРµ РёР·РѕР±СЂР°Р¶РµРЅРёР№   
 {
-	sc.loadFromFile("C:/Users/Lenovo/Desktop/MyPR/GameRunner/Paint/score.png");
+    sc.loadFromFile("C:/Users/Lenovo/Desktop/MyPR/GameRunner/Paint/score.png");
 }
 
 void Score::ScoreObjStart()
 {
-	for (int i = 0; i < 3; i++)                              // цикл на 3, поскольку в счёте будет 3-х значное число
-	{
-		score[i].setTexture(sc);
-		score[i].setTextureRect(IntRect(0, 0, 44, 55));
-		score[i].setPosition(45 * static_cast<float>(i), 0);
-		fs[i] = 0;
-	}
+    for (int i = 0; i < 3; i++)                              // С†РёРєР» РЅР° 3, РїРѕСЃРєРѕР»СЊРєСѓ РІ СЃС‡С‘С‚Рµ Р±СѓРґРµС‚ 3-С… Р·РЅР°С‡РЅРѕРµ С‡РёСЃР»Рѕ
+    {
+        score[i].setTexture(sc);
+        score[i].setTextureRect(IntRect(0, 0, 44, 55));
+        score[i].setPosition(45 * static_cast<float>(i), 0);
+        fs[i] = 0;
+    }
 }
 
 bool Score::ScoreObjRun(int game, int& GameLocation, bool& scoreX10)
@@ -48,16 +47,16 @@ bool Score::ScoreObjRun(int game, int& GameLocation, bool& scoreX10)
                 GameLocation = 3;
                 return false;
             }
-        }                                                     // считывание нужной цифры с изображения
-        score[0].setTextureRect(IntRect(44 * static_cast<int>(fs[0]), 0, 44, 55)); 
+        }                                                     // СЃС‡РёС‚С‹РІР°РЅРёРµ РЅСѓР¶РЅРѕР№ С†РёС„СЂС‹ СЃ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ
+        score[0].setTextureRect(IntRect(44 * static_cast<int>(fs[0]), 0, 44, 55));
         score[1].setTextureRect(IntRect(44 * static_cast<int>(fs[1]), 0, 44, 55));
         score[2].setTextureRect(IntRect(44 * static_cast<int>(fs[2]), 0, 44, 55));
     }
     return true;
 }
 
-void Score::draw(RenderWindow& window)                        // отображения счёта на экране
+void Score::draw(RenderWindow& window)                        // РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ СЃС‡С‘С‚Р° РЅР° СЌРєСЂР°РЅРµ
 {
     for (const auto& i : score)
-	    window.draw(i);
+        window.draw(i);
 }
