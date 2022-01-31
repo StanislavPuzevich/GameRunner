@@ -13,14 +13,14 @@ private:
 
 public:
 
-	void loadFile();                        // загрузка текстур
-	void randEarthObj();                    // задает координаты элементов при первом цикле
+	void loadFile();                        // Р·Р°РіСЂСѓР·РєР° С‚РµРєСЃС‚СѓСЂ
+	void randEarthObj();                    // Р·Р°РґР°РµС‚ РєРѕРѕСЂРґРёРЅР°С‚С‹ СЌР»РµРјРµРЅС‚РѕРІ РїСЂРё РїРµСЂРІРѕРј С†РёРєР»Рµ
 	void randDesertObj();
 	void randSnowObj();
-	void randMoveEsarthObj();               // задает координаты объектов "почвы" в движении
+	void randMoveEsarthObj();               // Р·Р°РґР°РµС‚ РєРѕРѕСЂРґРёРЅР°С‚С‹ РѕР±СЉРµРєС‚РѕРІ "РїРѕС‡РІС‹" РІ РґРІРёР¶РµРЅРёРё
 	void randMoveDeserthObj();
 	void randMoveSnowObj();
-	void draw(sf::RenderWindow& window);    // выводит на экран элементы
+	void draw(sf::RenderWindow& window);    // РІС‹РІРѕРґРёС‚ РЅР° СЌРєСЂР°РЅ СЌР»РµРјРµРЅС‚С‹
 	void drawDesert(sf::RenderWindow& window);
 	void drawSnow(sf::RenderWindow& window);
 };
