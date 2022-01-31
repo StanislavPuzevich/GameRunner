@@ -1,95 +1,94 @@
-#include <SFML/Graphics.hpp>
 #include "Earth.h"
 
 using namespace sf;
 
-void Earth::loadFile()                                             // подключение изображений       
+void Earth::loadFile()                                             // РїРѕРґРєР»СЋС‡РµРЅРёРµ РёР·РѕР±СЂР°Р¶РµРЅРёР№       
 {
-	e.loadFromFile("C:/Users/Lenovo/Desktop/MyPR/GameRunner/Paint/earth.png");
+    e.loadFromFile("C:/Users/Lenovo/Desktop/MyPR/GameRunner/Paint/earth.png");
     des.loadFromFile("C:/Users/Lenovo/Desktop/MyPR/GameRunner/Paint/desert.png");
     sn.loadFromFile("C:/Users/Lenovo/Desktop/MyPR/GameRunner/Paint/Snow.png");
 }
 
-void Earth::randEarthObj()                                         // ф-ия начального расположения объектов "земля"
+void Earth::randEarthObj()                                         // С„-РёСЏ РЅР°С‡Р°Р»СЊРЅРѕРіРѕ СЂР°СЃРїРѕР»РѕР¶РµРЅРёСЏ РѕР±СЉРµРєС‚РѕРІ "Р·РµРјР»СЏ"
 {
-    for (int i = 0; i < 3; i++)                                    // цикл на 3, потому что в игре 3 беговых уровня
+    for (int i = 0; i < 3; i++)                                    // С†РёРєР» РЅР° 3, РїРѕС‚РѕРјСѓ С‡С‚Рѕ РІ РёРіСЂРµ 3 Р±РµРіРѕРІС‹С… СѓСЂРѕРІРЅСЏ
     {
-        earth[i].setTexture(e);                                    // накладывает текстуру на спрайт
-        earth[i].setScale(2.f, 0.4f);                              // масштаб спрайта
-        earth[i].setPosition(0, 335 + 335 * static_cast<float>(i));// расположение спрайтов на экране
+        earth[i].setTexture(e);                                    // РЅР°РєР»Р°РґС‹РІР°РµС‚ С‚РµРєСЃС‚СѓСЂСѓ РЅР° СЃРїСЂР°Р№С‚
+        earth[i].setScale(2.f, 0.4f);                              // РјР°СЃС€С‚Р°Р± СЃРїСЂР°Р№С‚Р°
+        earth[i].setPosition(0, 335 + 335 * static_cast<float>(i));// СЂР°СЃРїРѕР»РѕР¶РµРЅРёРµ СЃРїСЂР°Р№С‚РѕРІ РЅР° СЌРєСЂР°РЅРµ
     }
 }
 
-void Earth::randDesertObj()                                        // ф-ия начального расположения объектов "песок"
+void Earth::randDesertObj()                                        // С„-РёСЏ РЅР°С‡Р°Р»СЊРЅРѕРіРѕ СЂР°СЃРїРѕР»РѕР¶РµРЅРёСЏ РѕР±СЉРµРєС‚РѕРІ "РїРµСЃРѕРє"
 {
     for (int i = 0; i < 3; i++)
     {
         desert[i].setTexture(des);
-        desert[i].setScale(6.f, 0.7f);                             // изображение оказалось не достаточно широким, пришлось растянуть в 6 раз :) в игре не заметно
+        desert[i].setScale(6.f, 0.7f);               // РёР·РѕР±СЂР°Р¶РµРЅРёРµ РѕРєР°Р·Р°Р»РѕСЃСЊ РЅРµ РґРѕСЃС‚Р°С‚РѕС‡РЅРѕ С€РёСЂРѕРєРёРј, РїСЂРёС€Р»РѕСЃСЊ СЂР°СЃС‚СЏРЅСѓС‚СЊ РІ 6 СЂР°Р· :) РІ РёРіСЂРµ РЅРµ Р·Р°РјРµС‚РЅРѕ
         desert[i].setPosition(-70, 320 + 320 * static_cast<float>(i));
     }
 }
- 
-void Earth::randSnowObj()                                          // ф-ия начального расположения объектов "снег"
+
+void Earth::randSnowObj()                                          // С„-РёСЏ РЅР°С‡Р°Р»СЊРЅРѕРіРѕ СЂР°СЃРїРѕР»РѕР¶РµРЅРёСЏ РѕР±СЉРµРєС‚РѕРІ "СЃРЅРµРі"
 {
     for (int i = 0; i < 3; i++)
     {
         snow[i].setTexture(sn);
-        snow[i].setScale(9.f, 1.1f);                               // изображение оказалось не достаточно широким, пришлось растянуть в 9 раз :) в игре не заметно
+        snow[i].setScale(9.f, 1.1f);                 // РёР·РѕР±СЂР°Р¶РµРЅРёРµ РѕРєР°Р·Р°Р»РѕСЃСЊ РЅРµ РґРѕСЃС‚Р°С‚РѕС‡РЅРѕ С€РёСЂРѕРєРёРј, РїСЂРёС€Р»РѕСЃСЊ СЂР°СЃС‚СЏРЅСѓС‚СЊ РІ 9 СЂР°Р· :) РІ РёРіСЂРµ РЅРµ Р·Р°РјРµС‚РЅРѕ
         snow[i].setPosition(0, 325 + 325 * static_cast<float>(i));
     }
 }
 
-void Earth::randMoveEsarthObj()                                    // ф-ия динамического расположения объектов "земля"
+void Earth::randMoveEsarthObj()                                     // С„-РёСЏ РґРёРЅР°РјРёС‡РµСЃРєРѕРіРѕ СЂР°СЃРїРѕР»РѕР¶РµРЅРёСЏ РѕР±СЉРµРєС‚РѕРІ "Р·РµРјР»СЏ"
 {
     Vector2f eh[3];
     for (int i = 0; i < 3; i++)
     {
-        earth[i].move(-1.f, 0.f);                                  // скорость движения почвы с каждым уровнем увеличивается
+        earth[i].move(-1.f, 0);                       // СЃРєРѕСЂРѕСЃС‚СЊ РґРІРёР¶РµРЅРёСЏ РїРѕС‡РІС‹ СЃ РєР°Р¶РґС‹Рј СѓСЂРѕРІРЅРµРј СѓРІРµР»РёС‡РёРІР°РµС‚СЃСЏ
         eh[i] = earth[i].getPosition();
-        if (eh[i].x < -1920)                                       // как только спрайт достигает координаты по Х = -1920, создаём новый
+        if (eh[i].x < -1920)                                       // РєР°Рє С‚РѕР»СЊРєРѕ СЃРїСЂР°Р№С‚ РґРѕСЃС‚РёРіР°РµС‚ РєРѕРѕСЂРґРёРЅР°С‚С‹ РїРѕ РҐ = -1920, СЃРѕР·РґР°С‘Рј РЅРѕРІС‹Р№
             earth[i].setPosition(0, 335 + 335 * static_cast<float>(i));
     }
 }
 
-void Earth::randMoveDeserthObj()                                   // ф-ия динамического расположения объектов "песок"
+void Earth::randMoveDeserthObj()                                   // С„-РёСЏ РґРёРЅР°РјРёС‡РµСЃРєРѕРіРѕ СЂР°СЃРїРѕР»РѕР¶РµРЅРёСЏ РѕР±СЉРµРєС‚РѕРІ "РїРµСЃРѕРє"
 {
     Vector2f eh[3];
     for (int i = 0; i < 3; i++)
     {
-        desert[i].move(-1.1f, 0.f);                                // скорость движения почвы
+        desert[i].move(-1.1f, 0);                                  // СЃРєРѕСЂРѕСЃС‚СЊ РґРІРёР¶РµРЅРёСЏ РїРѕС‡РІС‹
         eh[i] = desert[i].getPosition();
         if (eh[i].x < -1920)
             desert[i].setPosition(-70, 320 + 320 * static_cast<float>(i));
     }
 }
 
-void Earth::randMoveSnowObj()                                      // ф-ия динамического расположения объектов "снег"
+void Earth::randMoveSnowObj()                                      // С„-РёСЏ РґРёРЅР°РјРёС‡РµСЃРєРѕРіРѕ СЂР°СЃРїРѕР»РѕР¶РµРЅРёСЏ РѕР±СЉРµРєС‚РѕРІ "СЃРЅРµРі"
 {
     Vector2f eh[3];
     for (int i = 0; i < 3; i++)
     {
-        snow[i].move(-1.2f, 0.f);                                  // скорость движения почвы
+        snow[i].move(-1.2f, 0);                                    // СЃРєРѕСЂРѕСЃС‚СЊ РґРІРёР¶РµРЅРёСЏ РїРѕС‡РІС‹
         eh[i] = snow[i].getPosition();
         if (eh[i].x < -1920)
             snow[i].setPosition(0, 325 + 325 * static_cast<float>(i));
     }
 }
 
-void Earth::draw(RenderWindow& window)                             // ф-ии отображаюшие почву на экране
+void Earth::draw(RenderWindow& window)                             // С„-РёРё РѕС‚РѕР±СЂР°Р¶Р°СЋС€РёРµ РїРѕС‡РІСѓ РЅР° СЌРєСЂР°РЅРµ
 {
     for (const auto& i : earth)
-	    window.draw(i);
+        window.draw(i);
 }
 
 void Earth::drawDesert(RenderWindow& window)
 {
     for (const auto& i : desert)
-	    window.draw(i);
+        window.draw(i);
 }
 
 void Earth::drawSnow(RenderWindow& window)
 {
     for (const auto& i : snow)
-	    window.draw(i);
+        window.draw(i);
 }
