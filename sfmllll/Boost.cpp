@@ -1,5 +1,4 @@
 #include "Boost.h"
-#include "Score.h"
 #include <cstdlib>
 
 using namespace sf;
