@@ -1,5 +1,3 @@
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
 #include "Blocks.h"
 #include "Earth.h"
 #include "Score.h"
@@ -13,105 +11,105 @@ void UpDownMovement(int& game, Event& event, Sound& jump, Music& pl, bool& down,
 
 void Location1(int& GameLocation, RenderWindow& window)
 {
-    Music pl;                                                     // èãðîâàÿ ìåëîäèÿ
+    Music pl;                                                     // Ã¨Ã£Ã°Ã®Ã¢Ã Ã¿ Ã¬Ã¥Ã«Ã®Ã¤Ã¨Ã¿
     pl.openFromFile("C:/Users/Lenovo/Desktop/MyPR/GameRunner/Paint/Game.wav");
-    pl.setVolume(60);                                             // ãðîìêîñòü 
-    pl.setLoop(true);                                             // áåñêîíå÷íûé ïîâòîð
+    pl.setVolume(60);                                             // Ã£Ã°Ã®Ã¬ÃªÃ®Ã±Ã²Ã¼ 
+    pl.setLoop(true);                                             // Ã¡Ã¥Ã±ÃªÃ®Ã­Ã¥Ã·Ã­Ã»Ã© Ã¯Ã®Ã¢Ã²Ã®Ã°
 
-    SoundBuffer jm;                                               // çâóê ïðûæêà
+    SoundBuffer jm;                                               // Ã§Ã¢Ã³Ãª Ã¯Ã°Ã»Ã¦ÃªÃ 
     jm.loadFromFile("C:/Users/Lenovo/Desktop/MyPR/GameRunner/Paint/Jump.wav");
     Sound jump(jm);
     jump.setVolume(10);
 
-    SoundBuffer dr;                                               // çâóê êàïëè
+    SoundBuffer dr;                                               // Ã§Ã¢Ã³Ãª ÃªÃ Ã¯Ã«Ã¨
     dr.loadFromFile("C:/Users/Lenovo/Desktop/MyPR/GameRunner/Paint/ZvonCoin.wav");
     Sound drop(dr);
     drop.setVolume(60);
      
-    SoundBuffer ht;                                               //çâóê óäàðà
+    SoundBuffer ht;                                               //Ã§Ã¢Ã³Ãª Ã³Ã¤Ã Ã°Ã 
     ht.loadFromFile("C:/Users/Lenovo/Desktop/MyPR/GameRunner/Paint/Hit.wav");
     Sound hit(ht);
     hit.setVolume(100);
 
-    Texture f;                                                    // áåêãðàóíä
+    Texture f;                                                    // Ã¡Ã¥ÃªÃ£Ã°Ã Ã³Ã­Ã¤
     f.loadFromFile("C:/Users/Lenovo/Desktop/MyPR/GameRunner/Paint/fon2.png");
     Sprite fon(f);
 
-    Earth l;                                                      // êëàññ "ïî÷âû"
+    Earth l;                                                      // ÃªÃ«Ã Ã±Ã± "Ã¯Ã®Ã·Ã¢Ã»"
     l.loadFile();
     l.randEarthObj();
 
-    Texture m;                                                    // Ïåðñîíàæ
+    Texture m;                                                    // ÃÃ¥Ã°Ã±Ã®Ã­Ã Ã¦
     m.loadFromFile("C:/Users/Lenovo/Desktop/MyPR/GameRunner/Paint/man.png");
-    Sprite man(m);                                                // èñõîäíèê òåêñòóð äëÿ ïåðñîíàæà
+    Sprite man(m);                                                // Ã¨Ã±ÃµÃ®Ã¤Ã­Ã¨Ãª Ã²Ã¥ÃªÃ±Ã²Ã³Ã° Ã¤Ã«Ã¿ Ã¯Ã¥Ã°Ã±Ã®Ã­Ã Ã¦Ã 
 
-    Boost boost;                                                  // êëàññ áóñòîâ
+    Boost boost;                                                  // ÃªÃ«Ã Ã±Ã± Ã¡Ã³Ã±Ã²Ã®Ã¢
     boost.loadFile();
     boost.randBoostObj();
 
-    float y = 540, frame = 0, py = 0, dy = 0, spead = 1, fx = 0;  // ó - èçíà÷àëüíàÿ êîîðäèíàòà Ïåðñîíàæà, frame - ñêîðîñòü ñìåíû è ñìåíà êàäðîâ, py - íûíåøíåå
-    bool up = false, down = false, anim = true, scoreX10 = false; // ïîëîæåíèå Ïåðñ íà îñè Ó, dy - ê êîòîðîìó ñòðåìèòñÿ, fx - ÷àñòîòà êàäðîâ íàäïèñåé,
-    int game = 0;                                                 // up, down, anim - àíèìàöèÿ Ïåðñîíàæà, scoreX10 - óâåëè÷åíèå áóñòà íà 10
-                                                                  // game - ïåðåìåííàÿ "ñëåäÿùàÿ" çà èãðîâûìè ñîáûòèÿìè, îòâå÷àåò çà íà÷ëî è êîíåö èãðû
-    Texture t;                                                    // Òåñò "Óðîâåíü 1"
+    float y = 540, frame = 0, py = 0, dy = 0, spead = 1, fx = 0;  // Ã³ - Ã¨Ã§Ã­Ã Ã·Ã Ã«Ã¼Ã­Ã Ã¿ ÃªÃ®Ã®Ã°Ã¤Ã¨Ã­Ã Ã²Ã  ÃÃ¥Ã°Ã±Ã®Ã­Ã Ã¦Ã , frame - Ã±ÃªÃ®Ã°Ã®Ã±Ã²Ã¼ Ã±Ã¬Ã¥Ã­Ã» Ã¨ Ã±Ã¬Ã¥Ã­Ã  ÃªÃ Ã¤Ã°Ã®Ã¢, py - Ã­Ã»Ã­Ã¥Ã¸Ã­Ã¥Ã¥
+    bool up = false, down = false, anim = true, scoreX10 = false; // Ã¯Ã®Ã«Ã®Ã¦Ã¥Ã­Ã¨Ã¥ ÃÃ¥Ã°Ã± Ã­Ã  Ã®Ã±Ã¨ Ã“, dy - Ãª ÃªÃ®Ã²Ã®Ã°Ã®Ã¬Ã³ Ã±Ã²Ã°Ã¥Ã¬Ã¨Ã²Ã±Ã¿, fx - Ã·Ã Ã±Ã²Ã®Ã²Ã  ÃªÃ Ã¤Ã°Ã®Ã¢ Ã­Ã Ã¤Ã¯Ã¨Ã±Ã¥Ã©,
+    int game = 0;                                                 // up, down, anim - Ã Ã­Ã¨Ã¬Ã Ã¶Ã¨Ã¿ ÃÃ¥Ã°Ã±Ã®Ã­Ã Ã¦Ã , scoreX10 - Ã³Ã¢Ã¥Ã«Ã¨Ã·Ã¥Ã­Ã¨Ã¥ Ã¡Ã³Ã±Ã²Ã  Ã­Ã  10
+                                                                  // game - Ã¯Ã¥Ã°Ã¥Ã¬Ã¥Ã­Ã­Ã Ã¿ "Ã±Ã«Ã¥Ã¤Ã¿Ã¹Ã Ã¿" Ã§Ã  Ã¨Ã£Ã°Ã®Ã¢Ã»Ã¬Ã¨ Ã±Ã®Ã¡Ã»Ã²Ã¨Ã¿Ã¬Ã¨, Ã®Ã²Ã¢Ã¥Ã·Ã Ã¥Ã² Ã§Ã  Ã­Ã Ã·Ã«Ã® Ã¨ ÃªÃ®Ã­Ã¥Ã¶ Ã¨Ã£Ã°Ã»
+    Texture t;                                                    // Ã’Ã¥Ã±Ã² "Ã“Ã°Ã®Ã¢Ã¥Ã­Ã¼ 1"
     t.loadFromFile("C:/Users/Lenovo/Desktop/MyPR/GameRunner/Paint/textLev1.png");
     Sprite text(t);
-    text.setPosition(370, 400);                                   // ðàñïîëîæåíèå íàäïèñè íà ýêðàíå
+    text.setPosition(370, 400);                                   // Ã°Ã Ã±Ã¯Ã®Ã«Ã®Ã¦Ã¥Ã­Ã¨Ã¥ Ã­Ã Ã¤Ã¯Ã¨Ã±Ã¨ Ã­Ã  Ã½ÃªÃ°Ã Ã­Ã¥
 
-    Blocks bk;                                                    // êëàññ ïðåïÿòñòâèÿé â âèäå áëîêîâ
+    Blocks bk;                                                    // ÃªÃ«Ã Ã±Ã± Ã¯Ã°Ã¥Ã¯Ã¿Ã²Ã±Ã²Ã¢Ã¨Ã¿Ã© Ã¢ Ã¢Ã¨Ã¤Ã¥ Ã¡Ã«Ã®ÃªÃ®Ã¢
     bk.loadFile();
     bk.randBlockObj();
 
-    Texture go;                                                   // òåêñò Ãåéì Îâåð
+    Texture go;                                                   // Ã²Ã¥ÃªÃ±Ã² ÃƒÃ¥Ã©Ã¬ ÃŽÃ¢Ã¥Ã°
     go.loadFromFile("C:/Users/Lenovo/Desktop/MyPR/GameRunner/Paint/GO.png");
     Sprite gameover(go);
-    gameover.setPosition(290, 450);                               // ðàñïîëîæåíèå íàäïèñè íà ýêðàíå
+    gameover.setPosition(290, 450);                               // Ã°Ã Ã±Ã¯Ã®Ã«Ã®Ã¦Ã¥Ã­Ã¨Ã¥ Ã­Ã Ã¤Ã¯Ã¨Ã±Ã¨ Ã­Ã  Ã½ÃªÃ°Ã Ã­Ã¥
 
-    Score sc;                                                     // êëàññ "Ñ÷¸ò÷èê î÷êîâ"
+    Score sc;                                                     // ÃªÃ«Ã Ã±Ã± "Ã‘Ã·Â¸Ã²Ã·Ã¨Ãª Ã®Ã·ÃªÃ®Ã¢"
     sc.loadFile();
     sc.ScoreObjStart();
 
-    while (window.isOpen())                                       // ïîêà îòêðûòî îêíî
+    while (window.isOpen())                                       // Ã¯Ã®ÃªÃ  Ã®Ã²ÃªÃ°Ã»Ã²Ã® Ã®ÃªÃ­Ã®
     {
         Event event{};
         while (window.pollEvent(event))
         {
             if (event.type == Event::Closed)
                 window.close();
-            UpDownMovement(game, event, jump, pl, down, up, dy, py);// ô-ÿ àíèìàöèè ñòàðòîâîãî îêíà è äâèæåíèÿ ââåðõ è âíèç
+            UpDownMovement(game, event, jump, pl, down, up, dy, py);// Ã´-Ã¿ Ã Ã­Ã¨Ã¬Ã Ã¶Ã¨Ã¨ Ã±Ã²Ã Ã°Ã²Ã®Ã¢Ã®Ã£Ã® Ã®ÃªÃ­Ã  Ã¨ Ã¤Ã¢Ã¨Ã¦Ã¥Ã­Ã¨Ã¿ Ã¢Ã¢Ã¥Ã°Ãµ Ã¨ Ã¢Ã­Ã¨Ã§
         }
 
         ManAnimationRun(man, l, bk, hit, frame, py, dy, game, drop, spead, y, anim, up, down, GameLocation, boost, scoreX10, sc);
-                                                                  // ô-ÿ àíèìàöèè âñåõ îáúåêòîâ
-        if (GameLocation == 2)                                    // Åñëè GameLocation = 2 òî çàêðûâàåì ýòî îêíî è ïåðåõîäèì íà ñëåäóþùèé óðîâåíü
+                                                                  // Ã´-Ã¿ Ã Ã­Ã¨Ã¬Ã Ã¶Ã¨Ã¨ Ã¢Ã±Ã¥Ãµ Ã®Ã¡ÃºÃ¥ÃªÃ²Ã®Ã¢
+        if (GameLocation == 2)                                    // Ã…Ã±Ã«Ã¨ GameLocation = 2 Ã²Ã® Ã§Ã ÃªÃ°Ã»Ã¢Ã Ã¥Ã¬ Ã½Ã²Ã® Ã®ÃªÃ­Ã® Ã¨ Ã¯Ã¥Ã°Ã¥ÃµÃ®Ã¤Ã¨Ã¬ Ã­Ã  Ã±Ã«Ã¥Ã¤Ã³Ã¾Ã¹Ã¨Ã© Ã³Ã°Ã®Ã¢Ã¥Ã­Ã¼
             break;
 
-        window.draw(fon);                                         // èçîáðàæåíèå áåêãðàóíäà
+        window.draw(fon);                                         // Ã¨Ã§Ã®Ã¡Ã°Ã Ã¦Ã¥Ã­Ã¨Ã¥ Ã¡Ã¥ÃªÃ£Ã°Ã Ã³Ã­Ã¤Ã 
 
-        l.draw(window);                                           // èçîáðàæåíèå ïî÷âû
+        l.draw(window);                                           // Ã¨Ã§Ã®Ã¡Ã°Ã Ã¦Ã¥Ã­Ã¨Ã¥ Ã¯Ã®Ã·Ã¢Ã»
 
-        man.setPosition(200.f, y);                                // ïîñòîÿííàÿ êîîðäèíàòà Ïåðñîíàæà ïî îñè Õ
-        window.draw(man);                                         // èçîáðàæåíèå Ïåðñîíàæà
+        man.setPosition(200.f, y);                                // Ã¯Ã®Ã±Ã²Ã®Ã¿Ã­Ã­Ã Ã¿ ÃªÃ®Ã®Ã°Ã¤Ã¨Ã­Ã Ã²Ã  ÃÃ¥Ã°Ã±Ã®Ã­Ã Ã¦Ã  Ã¯Ã® Ã®Ã±Ã¨ Ã•
+        window.draw(man);                                         // Ã¨Ã§Ã®Ã¡Ã°Ã Ã¦Ã¥Ã­Ã¨Ã¥ ÃÃ¥Ã°Ã±Ã®Ã­Ã Ã¦Ã 
         if (game == 0)
         {
             fx += 0.005f;
             if (fx > 5)
                 fx -= 5;
-            if (fx < 3) window.draw(text);                        // àíèìàöèÿ òåêñòà "Ëåâ 1 íàæìèòå äëÿ ïðîäîëæåíèÿ"
+            if (fx < 3) window.draw(text);                        // Ã Ã­Ã¨Ã¬Ã Ã¶Ã¨Ã¿ Ã²Ã¥ÃªÃ±Ã²Ã  "Ã‹Ã¥Ã¢ 1 Ã­Ã Ã¦Ã¬Ã¨Ã²Ã¥ Ã¤Ã«Ã¿ Ã¯Ã°Ã®Ã¤Ã®Ã«Ã¦Ã¥Ã­Ã¨Ã¿"
         }
 
-        boost.draw(window);                                       // èçîáðàæåíèå áóñòîâ
-        bk.draw(window);                                          // èçîáðàæåíèå ïðåïÿòñòâèé
-        sc.draw(window);                                          // èçîáðàæåíèå ñ÷¸òà
+        boost.draw(window);                                       // Ã¨Ã§Ã®Ã¡Ã°Ã Ã¦Ã¥Ã­Ã¨Ã¥ Ã¡Ã³Ã±Ã²Ã®Ã¢
+        bk.draw(window);                                          // Ã¨Ã§Ã®Ã¡Ã°Ã Ã¦Ã¥Ã­Ã¨Ã¥ Ã¯Ã°Ã¥Ã¯Ã¿Ã²Ã±Ã²Ã¢Ã¨Ã©
+        sc.draw(window);                                          // Ã¨Ã§Ã®Ã¡Ã°Ã Ã¦Ã¥Ã­Ã¨Ã¥ Ã±Ã·Â¸Ã²Ã 
 
         if (game == 2)             
         {
-            window.draw(gameover);                                // åñëè game = 2, âûâîäèì íàäïèñü Ãåéì Îâåð
-            if (event.type == Event::MouseButtonPressed)          // îæèäàåì íàæàòèÿ êëàâèíè ìûøè
+            window.draw(gameover);                                // Ã¥Ã±Ã«Ã¨ game = 2, Ã¢Ã»Ã¢Ã®Ã¤Ã¨Ã¬ Ã­Ã Ã¤Ã¯Ã¨Ã±Ã¼ ÃƒÃ¥Ã©Ã¬ ÃŽÃ¢Ã¥Ã°
+            if (event.type == Event::MouseButtonPressed)          // Ã®Ã¦Ã¨Ã¤Ã Ã¥Ã¬ Ã­Ã Ã¦Ã Ã²Ã¨Ã¿ ÃªÃ«Ã Ã¢Ã¨Ã­Ã¨ Ã¬Ã»Ã¸Ã¨
                 if (Keyboard::Key::Left)
                 {
-                    GameLocation = 1;                             // ïîñëå ÷åãî âîçâðàùàåì  GameLocation = 1
-                    window.clear();                               // î÷èùàåì è çàêðûâàåì îêíî
+                    GameLocation = 1;                             // Ã¯Ã®Ã±Ã«Ã¥ Ã·Ã¥Ã£Ã® Ã¢Ã®Ã§Ã¢Ã°Ã Ã¹Ã Ã¥Ã¬  GameLocation = 1
+                    window.clear();                               // Ã®Ã·Ã¨Ã¹Ã Ã¥Ã¬ Ã¨ Ã§Ã ÃªÃ°Ã»Ã¢Ã Ã¥Ã¬ Ã®ÃªÃ­Ã®
                     window.close();
                 }
         }
