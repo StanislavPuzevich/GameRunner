@@ -5,9 +5,9 @@ using namespace sf;
 
 int Menu()
 {
-	RenderWindow menu(VideoMode(960, 720, 32), "GameRunner");                         // создаём окно Меню
-    Texture fn, textmenu1, textmenu2, textmenu3, textmenu4, ct, ab;                   // переменные текстур
-    fn.loadFromFile("C:/Users/Lenovo/Desktop/MyPR/GameRunner/Paint/bg.png");          // загружаем текстуры
+    RenderWindow menu(VideoMode(960, 720, 32), "GameRunner");                         // СЃРѕР·РґР°С‘Рј РѕРєРЅРѕ РњРµРЅСЋ
+    Texture fn, textmenu1, textmenu2, textmenu3, textmenu4, ct, ab;                   // РїРµСЂРµРјРµРЅРЅС‹Рµ С‚РµРєСЃС‚СѓСЂ
+    fn.loadFromFile("C:/Users/Lenovo/Desktop/MyPR/GameRunner/Paint/bg.png");          // Р·Р°РіСЂСѓР¶Р°РµРј С‚РµРєСЃС‚СѓСЂС‹
     ct.loadFromFile("C:/Users/Lenovo/Desktop/MyPR/GameRunner/Paint/control1.png");
     ab.loadFromFile("C:/Users/Lenovo/Desktop/MyPR/GameRunner/Paint/about.png");
     textmenu1.loadFromFile("C:/Users/Lenovo/Desktop/MyPR/GameRunner/Paint/pl.png");
@@ -15,31 +15,31 @@ int Menu()
     textmenu3.loadFromFile("C:/Users/Lenovo/Desktop/MyPR/GameRunner/Paint/ab.png");
     textmenu4.loadFromFile("C:/Users/Lenovo/Desktop/MyPR/GameRunner/Paint/ex.png");
     Sprite fonmenu(fn), text1(textmenu1), text2(textmenu2), text3(textmenu3), text4(textmenu4), control(ct), about(ab);
-    text1.setScale(0.8, 0.8);                                                         // переменный спрайтов
-    text2.setScale(0.7, 0.7);                                                         // масштабы для надписей в Меню
-    text3.setScale(0.2, 0.2);
-    text4.setScale(0.7, 0.7);
+    text1.setScale(0.8f, 0.8f);                                                       // РїРµСЂРµРјРµРЅРЅС‹Р№ СЃРїСЂР°Р№С‚РѕРІ
+    text2.setScale(0.7f, 0.7f);                                                       // РјР°СЃС€С‚Р°Р±С‹ РґР»СЏ РЅР°РґРїРёСЃРµР№ РІ РњРµРЅСЋ
+    text3.setScale(0.2f, 0.2f);
+    text4.setScale(0.7f, 0.7f);
 
-    Image icon;                                                                       // блок отвечает за создание эмблемы приложения
+    Image icon;                                                                       // Р±Р»РѕРє РѕС‚РІРµС‡Р°РµС‚ Р·Р° СЃРѕР·РґР°РЅРёРµ СЌРјР±Р»РµРјС‹ РїСЂРёР»РѕР¶РµРЅРёСЏ
     icon.loadFromFile("C:/Users/Lenovo/Desktop/MyPR/GameRunner/Paint/IconMenu.png");
     menu.setIcon(100, 100, icon.getPixelsPtr());
 
-    Music MenuSound;                                                                  // мелодия меню
+    Music MenuSound;                                                                  // РјРµР»РѕРґРёСЏ РјРµРЅСЋ
     MenuSound.openFromFile("C:/Users/Lenovo/Desktop/MyPR/GameRunner/Paint/MenuSound.wav");
-    MenuSound.setVolume(60);                                                          // громкость
-    MenuSound.setLoop(true);                                                          // постоянный повтор пока bool sound = true
+    MenuSound.setVolume(60.f);                                                        // РіСЂРѕРјРєРѕСЃС‚СЊ
+    MenuSound.setLoop(true);                                                          // РїРѕСЃС‚РѕСЏРЅРЅС‹Р№ РїРѕРІС‚РѕСЂ РїРѕРєР° bool sound = true
 
-    SoundBuffer mc;                                                                   // звук кликов 
+    SoundBuffer mc;                                                                   // Р·РІСѓРє РєР»РёРєРѕРІ 
     mc.loadFromFile("C:/Users/Lenovo/Desktop/MyPR/GameRunner/Paint/MenuBatt.wav");
     Sound MenuClick(mc);
-    MenuClick.setVolume(100);
+    MenuClick.setVolume(100.f);
 
-    text1.setPosition(15, 80);                                                        // расположение надписей на экране
-    text2.setPosition(20, 170);
-    text3.setPosition(25, 250);
-    text4.setPosition(8, 315);
+    text1.setPosition(15.f, 80.f);                                                    // СЂР°СЃРїРѕР»РѕР¶РµРЅРёРµ РЅР°РґРїРёСЃРµР№ РЅР° СЌРєСЂР°РЅРµ
+    text2.setPosition(20.f, 170.f);
+    text3.setPosition(25.f, 250.f);
+    text4.setPosition(8.f, 315.f);
 
-    bool sound = true;      
+    bool sound = true;
     bool menuOpen = true;
     int menuNum = 0;
 
@@ -47,7 +47,7 @@ int Menu()
     {
         Event event{};
 
-        text1.setColor(Color::White);                                                 // возвращает надписям изначальный цвет, после окрашивания в красный
+        text1.setColor(Color::White);                                                 // РІРѕР·РІСЂР°С‰Р°РµС‚ РЅР°РґРїРёСЃСЏРј РёР·РЅР°С‡Р°Р»СЊРЅС‹Р№ С†РІРµС‚, РїРѕСЃР»Рµ РѕРєСЂР°С€РёРІР°РЅРёСЏ РІ РєСЂР°СЃРЅС‹Р№
         text2.setColor(Color::White);
         text3.setColor(Color::White);
         text4.setColor(Color::White);
@@ -57,7 +57,7 @@ int Menu()
             MenuSound.play();
             sound = false;
         }
-                                                                                      // если навести курсор на надпись, она окрасится в красный цвет
+        // РµСЃР»Рё РЅР°РІРµСЃС‚Рё РєСѓСЂСЃРѕСЂ РЅР° РЅР°РґРїРёСЃСЊ, РѕРЅР° РѕРєСЂР°СЃРёС‚СЃСЏ РІ РєСЂР°СЃРЅС‹Р№ С†РІРµС‚
         if (IntRect(15, 80, 320, 55).contains(Mouse::getPosition(menu))) { MenuClick.play(); text1.setColor(Color::Red); menuNum = 1; }
         if (IntRect(24, 175, 465, 45).contains(Mouse::getPosition(menu))) { MenuClick.play(); text2.setColor(Color::Red); menuNum = 2; }
         if (IntRect(25, 252, 360, 42).contains(Mouse::getPosition(menu))) { MenuClick.play(); text3.setColor(Color::Red); menuNum = 3; }
@@ -67,16 +67,16 @@ int Menu()
         {
             if (event.type == Event::MouseButtonPressed)
                 if (Keyboard::Key::Left)
-                {                                                                     // выбор и клик на надписи в меню и последующие события
+                {                                                                     // РІС‹Р±РѕСЂ Рё РєР»РёРє РЅР° РЅР°РґРїРёСЃРё РІ РјРµРЅСЋ Рё РїРѕСЃР»РµРґСѓСЋС‰РёРµ СЃРѕР±С‹С‚РёСЏ
                     if (IntRect(15, 80, 320, 55).contains(Mouse::getPosition(menu))) menuOpen = false;
-                    if (IntRect(24, 175, 465, 45).contains(Mouse::getPosition(menu))){ menu.draw(control); menu.display(); while (!Keyboard::isKeyPressed(Keyboard::Escape)){}}
-                    if (IntRect(25, 252, 360, 42).contains(Mouse::getPosition(menu))){ menu.draw(about); menu.display(); while (!Keyboard::isKeyPressed(Keyboard::Escape)){}}
+                    if (IntRect(24, 175, 465, 45).contains(Mouse::getPosition(menu))) { menu.draw(control); menu.display(); while (!Keyboard::isKeyPressed(Keyboard::Escape)) {} }
+                    if (IntRect(25, 252, 360, 42).contains(Mouse::getPosition(menu))) { menu.draw(about); menu.display(); while (!Keyboard::isKeyPressed(Keyboard::Escape)) {} }
                     if (IntRect(22, 325, 250, 43).contains(Mouse::getPosition(menu))) menuOpen = false;
                 }
             if (event.type == Event::Closed)
                 menuOpen = false;
         }
-        menu.draw(fonmenu);                                                           // отрисовка надписей, бекграундов и т.д. и т.п.
+        menu.draw(fonmenu);                                                           // РѕС‚СЂРёСЃРѕРІРєР° РЅР°РґРїРёСЃРµР№, Р±РµРєРіСЂР°СѓРЅРґРѕРІ Рё С‚.Рґ. Рё С‚.Рї.
         menu.draw(text1);
         menu.draw(text2);
         menu.draw(text3);
