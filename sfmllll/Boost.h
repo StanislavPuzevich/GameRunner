@@ -14,17 +14,17 @@ private:
 	sf::Sprite boost[3];
 	bool anim = true;
 	double frame = 0;
-	int bx[3] = {};                         // кф для определения расположении бустов на беговых уровнях
+	int bx[3] = {};                         // РєС„ РґР»СЏ РѕРїСЂРµРґРµР»РµРЅРёСЏ СЂР°СЃРїРѕР»РѕР¶РµРЅРёРё Р±СѓСЃС‚РѕРІ РЅР° Р±РµРіРѕРІС‹С… СѓСЂРѕРІРЅСЏС…
 
 public:
 
-	void loadFile();                        // загрузка текстур
-	void randBoostObj();                    // задает координаты бустов при первом цикле
+	void loadFile();                        // Р·Р°РіСЂСѓР·РєР° С‚РµРєСЃС‚СѓСЂ
+	void randBoostObj();                    // Р·Р°РґР°РµС‚ РєРѕРѕСЂРґРёРЅР°С‚С‹ Р±СѓСЃС‚РѕРІ РїСЂРё РїРµСЂРІРѕРј С†РёРєР»Рµ
 	void randBoostDropObj();
 	void randBoostFireObj();
-	void randMoveBoostObj(sf::Sprite man, bool& scoreX10, int& game, int& GameLocation, Score& sc, sf::Sound& zvon);  // задает координаты бустов в движении
-	void AnimationCoin(float& frame);       // ф-ии анимации бустов
+	void randMoveBoostObj(sf::Sprite man, bool& scoreX10, int& game, int& GameLocation, Score& sc, sf::Sound& zvon);  // Р·Р°РґР°РµС‚ РєРѕРѕСЂРґРёРЅР°С‚С‹ Р±СѓСЃС‚РѕРІ РІ РґРІРёР¶РµРЅРёРё
+	void AnimationCoin(float& frame);       // С„-РёРё Р°РЅРёРјР°С†РёРё Р±СѓСЃС‚РѕРІ
 	void AnimationDrop(float& frame);
 	void AnimationFire(float& frame);
-	void draw(sf::RenderWindow& window);    //выводит на экран бусты
+	void draw(sf::RenderWindow& window);    //РІС‹РІРѕРґРёС‚ РЅР° СЌРєСЂР°РЅ Р±СѓСЃС‚С‹
 };
