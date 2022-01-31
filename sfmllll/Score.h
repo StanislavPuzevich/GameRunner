@@ -1,4 +1,5 @@
 #pragma once
+#include <SFML/Graphics.hpp>
 
 class Score
 {
@@ -9,8 +10,8 @@ private:
 
 public:
 
-	void loadFile();                            // çàãðóçêà òåêñòóð
-	void ScoreObjStart();                       // çàäàåò êîîðäèíàòû ýëåìåíòîâ ïðè ïåðâîì öèêëå
+	void loadFile();                            // загрузка текстур
+	void ScoreObjStart();                       // задает координаты элементов при первом цикле
 	bool ScoreObjRun(int, int&, bool& scoreX10);
-	void draw(sf::RenderWindow& window);        //âûâîäèò íà ýêðàí ýëåìåíòû
+	void draw(sf::RenderWindow& window);        //выводит на экран элементы
 };
