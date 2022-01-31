@@ -2,34 +2,34 @@
 
 using namespace  sf;
 
-void Location1(int& GameLocation, RenderWindow& window);   
+void Location1(int& GameLocation, RenderWindow& window);
 void Location2(int& GameLocation, RenderWindow& window);
 void Location3(int& GameLocation, RenderWindow& window);
 int Menu();
 
 int main()
 {
-    int choiceMenu;                             // переменная связывающаяя игру с меню
-    bool menuOpen = true;                       // переменная окна Меню
+    int choiceMenu;                             // РїРµСЂРµРјРµРЅРЅР°СЏ СЃРІСЏР·С‹РІР°СЋС‰Р°СЏСЏ РёРіСЂСѓ СЃ РјРµРЅСЋ
+    bool menuOpen = true;                       // РїРµСЂРµРјРµРЅРЅР°СЏ РѕРєРЅР° РњРµРЅСЋ
     while (menuOpen)
     {
-        choiceMenu = Menu();                    // Вызов функции Меню  и получаение номера выбранного пункта
+        choiceMenu = Menu();                    // Р’С‹Р·РѕРІ С„СѓРЅРєС†РёРё РњРµРЅСЋ  Рё РїРѕР»СѓС‡Р°РµРЅРёРµ РЅРѕРјРµСЂР° РІС‹Р±СЂР°РЅРЅРѕРіРѕ РїСѓРЅРєС‚Р°
 
-        if (choiceMenu == 1)                    // если был выбран пункт №1 меню (Play)
+        if (choiceMenu == 1)                    // РµСЃР»Рё Р±С‹Р» РІС‹Р±СЂР°РЅ РїСѓРЅРєС‚ в„–1 РјРµРЅСЋ (Play)
         {
-            int GameLocation = 1;               // переменная отвечает за смену уровней
+            int GameLocation = 1;               // РїРµСЂРµРјРµРЅРЅР°СЏ РѕС‚РІРµС‡Р°РµС‚ Р·Р° СЃРјРµРЅСѓ СѓСЂРѕРІРЅРµР№
 
-            RenderWindow window(VideoMode(0, 0, 32), "SFML works!", Style::Fullscreen);  // создаём окно игры
+            RenderWindow window(VideoMode(1920, 1080, 32), "SFML works!");//, Style::Fullscreen);  // СЃРѕР·РґР°С‘Рј РѕРєРЅРѕ РёРіСЂС‹
 
-            if (GameLocation == 1)              // в зависимости от локации на текущий момент времени в игре, вызываем соответствующую ф-ию
+            if (GameLocation == 1)              // РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ Р»РѕРєР°С†РёРё РЅР° С‚РµРєСѓС‰РёР№ РјРѕРјРµРЅС‚ РІСЂРµРјРµРЅРё РІ РёРіСЂРµ, РІС‹Р·С‹РІР°РµРј СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰СѓСЋ С„-РёСЋ
                 Location1(GameLocation, window);
             if (GameLocation == 2)
                 Location2(GameLocation, window);
             if (GameLocation == 3)
                 Location3(GameLocation, window);
         }
-        else if (choiceMenu == 4)               // если в меню был выбран пункт №4, то закрываем Меню и приложение
-            menuOpen = false;                   // выходим из цикла
+        else if (choiceMenu == 4)               // РµСЃР»Рё РІ РјРµРЅСЋ Р±С‹Р» РІС‹Р±СЂР°РЅ РїСѓРЅРєС‚ в„–4, С‚Рѕ Р·Р°РєСЂС‹РІР°РµРј РњРµРЅСЋ Рё РїСЂРёР»РѕР¶РµРЅРёРµ
+            menuOpen = false;                   // РІС‹С…РѕРґРёРј РёР· С†РёРєР»Р°
     }
     return 0;
 }
