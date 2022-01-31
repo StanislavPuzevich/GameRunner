@@ -4,26 +4,26 @@
 
 using namespace sf;
 
-void Boost::loadFile()                                               // подключение изображений       
+void Boost::loadFile()                                               // РїРѕРґРєР»СЋС‡РµРЅРёРµ РёР·РѕР±СЂР°Р¶РµРЅРёР№       
 {
 	bst.loadFromFile("C:/Users/Lenovo/Desktop/MyPR/GameRunner/Paint/coin.png");
 	dr.loadFromFile("C:/Users/Lenovo/Desktop/MyPR/GameRunner/Paint/drop.png");
 	fr.loadFromFile("C:/Users/Lenovo/Desktop/MyPR/GameRunner/Paint/Fire.png");
 }
 
-void  Boost::randBoostObj()                                          // случайная генерация МОНЕТ на 1 уровне сразу после начала игры
+void  Boost::randBoostObj()                                          // СЃР»СѓС‡Р°Р№РЅР°СЏ РіРµРЅРµСЂР°С†РёСЏ РњРћРќР•Рў РЅР° 1 СѓСЂРѕРІРЅРµ СЃСЂР°Р·Сѓ РїРѕСЃР»Рµ РЅР°С‡Р°Р»Р° РёРіСЂС‹
 {
 	srand(static_cast<unsigned>(time(nullptr)));
-	for (int i = 0; i < 3; i++)                                      // цикл на 3 элемента, по логике игры на экране одновременно может быть не более 3 монет
+	for (int i = 0; i < 3; i++)                                      // С†РёРєР» РЅР° 3 СЌР»РµРјРµРЅС‚Р°, РїРѕ Р»РѕРіРёРєРµ РёРіСЂС‹ РЅР° СЌРєСЂР°РЅРµ РѕРґРЅРѕРІСЂРµРјРµРЅРЅРѕ РјРѕР¶РµС‚ Р±С‹С‚СЊ РЅРµ Р±РѕР»РµРµ 3 РјРѕРЅРµС‚
 	{
-		boost[i].setTexture(bst);                                    // накладывает текстуру на спрайт
-		bx[i] = rand() % 3;                                          // для случайного отображения на одном из 3 беговых уровней
+		boost[i].setTexture(bst);                                    // РЅР°РєР»Р°РґС‹РІР°РµС‚ С‚РµРєСЃС‚СѓСЂСѓ РЅР° СЃРїСЂР°Р№С‚
+		bx[i] = rand() % 3;                                          // РґР»СЏ СЃР»СѓС‡Р°Р№РЅРѕРіРѕ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РЅР° РѕРґРЅРѕРј РёР· 3 Р±РµРіРѕРІС‹С… СѓСЂРѕРІРЅРµР№
 		if (anim)
 		{
-			frame += 0.02;                                           // эта строка отвечает за смену кадров
-			if (frame > 6)                                           // поскольку  кадров всего 6, если frame достигло 6, то возвращаемся к 1-у изображению
+			frame += 0.02;                                           // СЌС‚Р° СЃС‚СЂРѕРєР° РѕС‚РІРµС‡Р°РµС‚ Р·Р° СЃРјРµРЅСѓ РєР°РґСЂРѕРІ
+			if (frame > 6)                                           // РїРѕСЃРєРѕР»СЊРєСѓ  РєР°РґСЂРѕРІ РІСЃРµРіРѕ 6, РµСЃР»Рё frame РґРѕСЃС‚РёРіР»Рѕ 6, С‚Рѕ РІРѕР·РІСЂР°С‰Р°РµРјСЃСЏ Рє 1-Сѓ РёР·РѕР±СЂР°Р¶РµРЅРёСЋ
 				frame -= 6;
-			switch (static_cast<int>(frame))                         // в зависимости от значения frame берём соответствующее изоюражение для спрайта
+			switch (static_cast<int>(frame))                         // РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ Р·РЅР°С‡РµРЅРёСЏ frame Р±РµСЂС‘Рј СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РµРµ РёР·РѕСЋСЂР°Р¶РµРЅРёРµ РґР»СЏ СЃРїСЂР°Р№С‚Р°
 			{
 			case 0: boost[i].setTextureRect(IntRect(0, 0, 85, 84)); break;
 			case 1: boost[i].setTextureRect(IntRect(85, 0, 85, 84)); break;
@@ -31,26 +31,26 @@ void  Boost::randBoostObj()                                          // случайна
 			case 3: boost[i].setTextureRect(IntRect(255, 0, 85, 84)); break;
 			case 4: boost[i].setTextureRect(IntRect(340, 0, 85, 84)); break;
 			case 5: boost[i].setTextureRect(IntRect(425, 0, 85, 84)); break;
-			default: ;
+			default:;
 			}
 		}
-		boost[i].setPosition(1920 + 200 * static_cast<float>(bx[i]), 230 + 330 * static_cast<float>(bx[i]));   // случайно отображаем в игре по осям Х и У
+		boost[i].setPosition(1920 + 200 * static_cast<float>(bx[i]), 230 + 330 * static_cast<float>(bx[i]));   // СЃР»СѓС‡Р°Р№РЅРѕ РѕС‚РѕР±СЂР°Р¶Р°РµРј РІ РёРіСЂРµ РїРѕ РѕСЃСЏРј РҐ Рё РЈ
 	}
 }
 
-void Boost::randBoostDropObj()                                       // ф-я идентична предыдущей за исключением кол-ва кадров, их 5
+void Boost::randBoostDropObj()                                       // С„-СЏ РёРґРµРЅС‚РёС‡РЅР° РїСЂРµРґС‹РґСѓС‰РµР№ Р·Р° РёСЃРєР»СЋС‡РµРЅРёРµРј РєРѕР»-РІР° РєР°РґСЂРѕРІ, РёС… 5
 {
 	srand(static_cast<unsigned>(time(nullptr)));
 	for (int i = 0; i < 3; i++)
 	{
 		boost[i].setTexture(dr);
-		boost[i].setScale(0.25, 0.25);                               // масштаб спрайта
+		boost[i].setScale(0.25f, 0.25f);                               // РјР°СЃС€С‚Р°Р± СЃРїСЂР°Р№С‚Р°
 		bx[i] = rand() % 3;
 
 		if (anim)
 		{
 			frame += 0.02;
-			if (frame > 5)                                           // 5 кадров
+			if (frame > 5)                                           // 5 РєР°РґСЂРѕРІ
 				frame -= 5;
 			switch (static_cast<int>(frame))
 			{
@@ -59,20 +59,20 @@ void Boost::randBoostDropObj()                                       // ф-я иден
 			case 2: boost[i].setTextureRect(IntRect(600, 0, 300, 380)); break;
 			case 3: boost[i].setTextureRect(IntRect(900, 0, 300, 380)); break;
 			case 4: boost[i].setTextureRect(IntRect(1200, 0, 300, 380)); break;
-			default: ;
+			default:;
 			}
 		}
 		boost[i].setPosition(1920 + 200 * static_cast<float>(bx[i]), 230 + 330 * static_cast<float>(bx[i]));
 	}
 }
 
-void  Boost::randBoostFireObj()                                     // ф-я идентична предыдущей за исключением кол-ва кадров, их снова 6
+void  Boost::randBoostFireObj()                                     // С„-СЏ РёРґРµРЅС‚РёС‡РЅР° РїСЂРµРґС‹РґСѓС‰РµР№ Р·Р° РёСЃРєР»СЋС‡РµРЅРёРµРј РєРѕР»-РІР° РєР°РґСЂРѕРІ, РёС… СЃРЅРѕРІР° 6
 {
 	srand(static_cast<unsigned>(time(nullptr)));
 	for (int i = 0; i < 3; i++)
 	{
 		boost[i].setTexture(fr);
-		boost[i].setScale(0.25, 0.25);                              // масштаб спрайта
+		boost[i].setScale(0.25f, 0.25f);                              // РјР°СЃС€С‚Р°Р± СЃРїСЂР°Р№С‚Р°
 		bx[i] = rand() % 3;
 		if (anim)
 		{
@@ -94,49 +94,49 @@ void  Boost::randBoostFireObj()                                     // ф-я идент
 	}
 }
 
-void Boost::randMoveBoostObj(Sprite man, bool& scoreX10,int& game, int& GameLocation, Score& sc, Sound& zvon)    // случайная генерация всех БУСТОВ
+void Boost::randMoveBoostObj(Sprite man, bool& scoreX10, int& game, int& GameLocation, Score& sc, Sound& zvon)    // СЃР»СѓС‡Р°Р№РЅР°СЏ РіРµРЅРµСЂР°С†РёСЏ РІСЃРµС… Р‘РЈРЎРўРћР’
 {
-	bool brk = true;                                          // переменная отвечает за своевременный выход из цикла for
+	bool brk = true;                                          // РїРµСЂРµРјРµРЅРЅР°СЏ РѕС‚РІРµС‡Р°РµС‚ Р·Р° СЃРІРѕРµРІСЂРµРјРµРЅРЅС‹Р№ РІС‹С…РѕРґ РёР· С†РёРєР»Р° for
 	srand(static_cast<unsigned>(time(nullptr)));
 	Vector2f bk[3];
 	for (int i = 0; i < 3; i++)
 	{
-		brk = sc.ScoreObjRun(game, GameLocation, scoreX10);   // в строке выполнятся функция ScoreObjRun, которая возвращает true если кол-во очков меньше 100,
-		if (brk == false)                                     // и false если счёт достиг 100, а дальше в зависимости от значения генерируем бусты,
-			break;                                            // либо выходим из цикла
+		brk = sc.ScoreObjRun(game, GameLocation, scoreX10);   // РІ СЃС‚СЂРѕРєРµ РІС‹РїРѕР»РЅСЏС‚СЃСЏ С„СѓРЅРєС†РёСЏ ScoreObjRun, РєРѕС‚РѕСЂР°СЏ РІРѕР·РІСЂР°С‰Р°РµС‚ true РµСЃР»Рё РєРѕР»-РІРѕ РѕС‡РєРѕРІ РјРµРЅСЊС€Рµ 100,
+		if (brk == false)                                     // Рё false РµСЃР»Рё СЃС‡С‘С‚ РґРѕСЃС‚РёРі 100, Р° РґР°Р»СЊС€Рµ РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ Р·РЅР°С‡РµРЅРёСЏ РіРµРЅРµСЂРёСЂСѓРµРј Р±СѓСЃС‚С‹,
+			break;                                            // Р»РёР±Рѕ РІС‹С…РѕРґРёРј РёР· С†РёРєР»Р°
 		else
 		{
-			if (GameLocation == 1)                            // ф-я принимает значение "GameLocation" и в зависимости от него определяет значение
-				boost[i].move(-1.0, 0);                       // скорости движения для буста
-			else if (GameLocation == 2)                       // с каждым уровнем скорость увеличивается на 0.1
-				boost[i].move(-1.1, 0);
+			if (GameLocation == 1)                            // С„-СЏ РїСЂРёРЅРёРјР°РµС‚ Р·РЅР°С‡РµРЅРёРµ "GameLocation" Рё РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ РЅРµРіРѕ РѕРїСЂРµРґРµР»СЏРµС‚ Р·РЅР°С‡РµРЅРёРµ
+				boost[i].move(-1.f, 0);                       // СЃРєРѕСЂРѕСЃС‚Рё РґРІРёР¶РµРЅРёСЏ РґР»СЏ Р±СѓСЃС‚Р°
+			else if (GameLocation == 2)                       // СЃ РєР°Р¶РґС‹Рј СѓСЂРѕРІРЅРµРј СЃРєРѕСЂРѕСЃС‚СЊ СѓРІРµР»РёС‡РёРІР°РµС‚СЃСЏ РЅР° 0.1
+				boost[i].move(-1.1f, 0);
 			else if (GameLocation == 3)
-				boost[i].move(-1.2, 0);
+				boost[i].move(-1.2f, 0);
 			bk[i] = boost[i].getPosition();
-			if (man.getGlobalBounds().intersects(boost[i].getGlobalBounds()))   // если Персонаж "поймал" буст (если координаты Персонажа и буста совпали)
+			if (man.getGlobalBounds().intersects(boost[i].getGlobalBounds()))   // РµСЃР»Рё РџРµСЂСЃРѕРЅР°Р¶ "РїРѕР№РјР°Р»" Р±СѓСЃС‚ (РµСЃР»Рё РєРѕРѕСЂРґРёРЅР°С‚С‹ РџРµСЂСЃРѕРЅР°Р¶Р° Рё Р±СѓСЃС‚Р° СЃРѕРІРїР°Р»Рё)
 			{
-				if (bk[i].x < 200)                            // то буст исчезает в координате х = 200, это координата где ВСЕГДА нахожится Персонаж
+				if (bk[i].x < 200)                            // С‚Рѕ Р±СѓСЃС‚ РёСЃС‡РµР·Р°РµС‚ РІ РєРѕРѕСЂРґРёРЅР°С‚Рµ С… = 200, СЌС‚Рѕ РєРѕРѕСЂРґРёРЅР°С‚Р° РіРґРµ Р’РЎР•Р“Р”Рђ РЅР°С…РѕР¶РёС‚СЃСЏ РџРµСЂСЃРѕРЅР°Р¶
 				{
-					zvon.play();                              // проигрываем звук
-					scoreX10 = true;                          // эта переменная передаётся в функцию ScoreObjRun по ссылке и увеличивает счён НА 10 значений
+					zvon.play();                              // РїСЂРѕРёРіСЂС‹РІР°РµРј Р·РІСѓРє
+					scoreX10 = true;                          // СЌС‚Р° РїРµСЂРµРјРµРЅРЅР°СЏ РїРµСЂРµРґР°С‘С‚СЃСЏ РІ С„СѓРЅРєС†РёСЋ ScoreObjRun РїРѕ СЃСЃС‹Р»РєРµ Рё СѓРІРµР»РёС‡РёРІР°РµС‚ СЃС‡С‘РЅ РќРђ 10 Р·РЅР°С‡РµРЅРёР№
 					bx[i] = rand() % 3;
-					boost[i].setPosition(1920 + 200 * static_cast<float>(i), 230 + 330 * static_cast<float>(bx[i]));   // случайное расположение буста
+					boost[i].setPosition(1920 + 200 * static_cast<float>(i), 230 + 330 * static_cast<float>(bx[i]));   // СЃР»СѓС‡Р°Р№РЅРѕРµ СЂР°СЃРїРѕР»РѕР¶РµРЅРёРµ Р±СѓСЃС‚Р°
 				}
 			}
-			else                                              // если Персонаж НЕ "поймал" буст (если координаты Персонажа и буста разные)
+			else                                              // РµСЃР»Рё РџРµСЂСЃРѕРЅР°Р¶ РќР• "РїРѕР№РјР°Р»" Р±СѓСЃС‚ (РµСЃР»Рё РєРѕРѕСЂРґРёРЅР°С‚С‹ РџРµСЂСЃРѕРЅР°Р¶Р° Рё Р±СѓСЃС‚Р° СЂР°Р·РЅС‹Рµ)
 			{
-				scoreX10 = false;                             // счёт на 10 НЕ увеличивается
-				if (bk[i].x < -85)                            // а буст исчезает вне зоны видимости по достижению координаты х = -85
+				scoreX10 = false;                             // СЃС‡С‘С‚ РЅР° 10 РќР• СѓРІРµР»РёС‡РёРІР°РµС‚СЃСЏ
+				if (bk[i].x < -85)                            // Р° Р±СѓСЃС‚ РёСЃС‡РµР·Р°РµС‚ РІРЅРµ Р·РѕРЅС‹ РІРёРґРёРјРѕСЃС‚Рё РїРѕ РґРѕСЃС‚РёР¶РµРЅРёСЋ РєРѕРѕСЂРґРёРЅР°С‚С‹ С… = -85
 				{
-					bx[i] = rand() % 3;                       // после исчезновения, генерируем новый буст
-					boost[i].setPosition(1920 + 150 * static_cast<float>(i), 230 + 330 * static_cast<float>(bx[i]));   
+					bx[i] = rand() % 3;                       // РїРѕСЃР»Рµ РёСЃС‡РµР·РЅРѕРІРµРЅРёСЏ, РіРµРЅРµСЂРёСЂСѓРµРј РЅРѕРІС‹Р№ Р±СѓСЃС‚
+					boost[i].setPosition(1920 + 150 * static_cast<float>(i), 230 + 330 * static_cast<float>(bx[i]));
 				}
 			}
 		}
 	}
 }
 
-void Boost::AnimationCoin(float& frame)                        // ф-ии отвечаают за анимацию буста в движении
+void Boost::AnimationCoin(float& frame)                        // С„-РёРё РѕС‚РІРµС‡Р°Р°СЋС‚ Р·Р° Р°РЅРёРјР°С†РёСЋ Р±СѓСЃС‚Р° РІ РґРІРёР¶РµРЅРёРё
 {
 	for (auto& i : boost)
 	{
@@ -165,7 +165,7 @@ void Boost::AnimationDrop(float& frame)
 		case 2: i.setTextureRect(IntRect(600, 0, 300, 380)); break;
 		case 3: i.setTextureRect(IntRect(900, 0, 300, 380)); break;
 		case 4: i.setTextureRect(IntRect(1200, 0, 300, 380)); break;
-		default: ;
+		default:;
 		}
 	}
 }
@@ -182,12 +182,12 @@ void Boost::AnimationFire(float& frame)
 		case 3: i.setTextureRect(IntRect(850, 0, 330, 400)); break;
 		case 4: i.setTextureRect(IntRect(1200, 0, 330, 400)); break;
 		case 5: i.setTextureRect(IntRect(1500, 0, 330, 400)); break;
-		default: ;
+		default:;
 		}
 	}
 }
 
-void Boost::draw(RenderWindow& window)   // ф-я отображает бусты на экране
+void Boost::draw(RenderWindow& window)   // С„-СЏ РѕС‚РѕР±СЂР°Р¶Р°РµС‚ Р±СѓСЃС‚С‹ РЅР° СЌРєСЂР°РЅРµ
 {
 	for (const auto& i : boost)
 		window.draw(i);
